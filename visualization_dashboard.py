@@ -22,23 +22,27 @@ image_mapping = {
     "cleaned_oppurtunity_data.png": "Opportunity Data",
     "cleaned_opp_data.jpeg": "Opp Data",
     "cleaned_opp_data_distribution.jpeg": "Opp Data Distribution",
-    "cleaned_user_data.png": "User Data"
+    "cleaned_user_data.png": "User Data",
+    "Top 10 countries with most learners.png": "Top 10 Countries with Most Learners",
+    "Box Plot For Outlier detection for Learner Oppurtunity Raw table.png": "Box Plot for Outlier Detection (Learner Opportunity Raw)",
+    "Histogram for Learner Oppurtunity Raw.png": "Histogram for Learner Opportunity Raw"
 }
 
-# Filter only the available images in the folder
+# Filter only available images in the folder
 available_images = {file: name for file, name in image_mapping.items() if file in os.listdir(IMAGE_FOLDER)}
 
-# Create tabs for each dataset visualization
-if available_images:
-    tabs = st.tabs(list(available_images.values()))
+# Sidebar for navigation
+st.sidebar.title("📌 Select a Dataset Visualization")
+selected_plot = st.sidebar.radio("Choose a dataset:", list(available_images.values()))
 
-    for index, (file_name, table_name) in enumerate(available_images.items()):
-        with tabs[index]:  # Assign each plot to its respective tab
-            img_path = os.path.join(IMAGE_FOLDER, file_name)
-            image = Image.open(img_path)
-            
-            # Display image with a formatted title
-            st.markdown(f"<h2 style='text-align: center; color: #2196F3;'>📌 {table_name}</h2>", unsafe_allow_html=True)
-            st.image(image, caption=f"{table_name} Visualization", use_container_width=True)
+# Display selected image
+if selected_plot:
+    file_name = [key for key, val in available_images.items() if val == selected_plot][0]
+    img_path = os.path.join(IMAGE_FOLDER, file_name)
+
+    # Load and display the image
+    image = Image.open(img_path)
+    st.markdown(f"<h2 style='text-align: center; color: #2196F3;'>📌 {selected_plot}</h2>", unsafe_allow_html=True)
+    st.image(image, caption=f"{selected_plot} Visualization", use_container_width=True)
 else:
     st.error("❌ No visualization images found. Please check the 'plots' folder.")
