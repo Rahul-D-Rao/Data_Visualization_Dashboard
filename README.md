@@ -22,6 +22,9 @@ This Streamlit dashboard provides an interactive way to visualize key insights f
 │   │-- cleaned_opp_data.jpeg
 │   │-- cleaned_opp_data_distribution.jpeg
 │   │-- cleaned_user_data.png
+│   │-- Top 10 countries with most learners.png
+│   │--Box Plot For Outlier detection for Learner Oppurtunity Raw table.png
+│   │--Histogram for Learner Oppurtunity Raw.png
 │-- visualization_dashboard.py
 │-- README.md
 ```
