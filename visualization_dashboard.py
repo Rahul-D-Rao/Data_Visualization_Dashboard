@@ -10,7 +10,7 @@ st.markdown("<h1 style='text-align: center; color: #4CAF50;'>📊 Data Visualiza
 st.write("Explore the key insights from the cleaned datasets through interactive visualizations.")
 
 # Path to the plots folder
-IMAGE_FOLDER = "C:/Users/rahul/Documents/1execelrate_internship/dashboard/plots"
+IMAGE_FOLDER = "plots/"
 
 # Dictionary mapping filenames to human-readable table names
 image_mapping = {
